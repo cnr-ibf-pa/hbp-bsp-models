@@ -1,8 +1,10 @@
-TITLE  K-D channel
-: M.Migliore jun 2006
+TITLE K-DR channel
+: from Klee Ficker and Heinemann
+: modified to account for Dax et al.
+: M.Migliore 1997
 
 UNITS {
-	(mA) = (milliamp) 
+	(mA) = (milliamp)
 	(mV) = (millivolt)
 
 }
@@ -11,21 +13,21 @@ PARAMETER {
 	v (mV)
         ek (mV)		: must be explicitely def. in hoc
 	celsius		(degC)
-	gkdbar=.0 (mho/cm2)
-        vhalfn=-33   (mV)
-        a0n=0.01      (/ms)
-        zetan=3    (1)
+	gkdrbar=.003 (mho/cm2)
+        vhalfn=13   (mV)
+        a0n=0.02      (/ms)
+        zetan=-3    (1)
         gmn=0.7  (1)
 	nmax=2  (1)
 	q10=1
-	sh = 5
+	sh = 0
 }
 
 
 NEURON {
-	SUFFIX kd
+	SUFFIX kdrb
 	USEION k READ ek WRITE ik
-        RANGE gkd,gkdbar, sh
+        RANGE gkdr,gkdrbar, sh
 	GLOBAL ninf,taun
 }
 
@@ -36,14 +38,14 @@ STATE {
 ASSIGNED {
 	ik (mA/cm2)
         ninf
-        gkd
+        gkdr
         taun
 }
 
 BREAKPOINT {
 	SOLVE states METHOD cnexp
-	gkd = gkdbar*n
-	ik = gkd*(v-ek)
+	gkdr = gkdrbar*n
+	ik = gkdr*(v-ek)
 
 }
 

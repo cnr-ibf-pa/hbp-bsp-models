@@ -42,7 +42,7 @@ STATE {
 
 INITIAL {
 	cai = cai0
-	irest = ica
+	:irest = ica
 	cmax=cai
 }
 
