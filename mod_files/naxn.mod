@@ -6,6 +6,7 @@ TITLE nax
 NEURON {
 	SUFFIX nax
 	USEION na READ ena WRITE ina
+    USEION ttx READ ttxo, ttxi VALENCE 1
 	RANGE  gbar, sh
 	GLOBAL minf, hinf, mtau, htau,thinf, qinf
 }
@@ -46,6 +47,8 @@ UNITS {
 } 
 
 ASSIGNED {
+    ttxo        (mM)
+    ttxi        (mM)
 	ina 		(mA/cm2)
 	thegna		(mho/cm2)
 	minf 		hinf 		
@@ -62,13 +65,29 @@ BREAKPOINT {
 } 
 
 INITIAL {
-	trates(v,sh)
+    if (ttxi == 0.015625 && ttxo > 1e-12) {
+        minf = 0.0
+        mtau = 1e-12
+        hinf = 1.0
+        htau = 1e-12
+    } else {
+        trates(v,sh)      
+    }
+
 	m=minf  
 	h=hinf
 }
 
 DERIVATIVE states {   
+    if (ttxi == 0.015625 && ttxo > 1e-12) {
+        minf = 0.0
+        mtau = 1e-12
+        hinf = 1.0
+        htau = 1e-12
+    } else {
         trates(v,sh)      
+    }
+    
         m' = (minf-m)/mtau
         h' = (hinf-h)/htau
 }
