@@ -2,6 +2,7 @@ TITLE nax
 : Na current for axon. No slow inact.
 : M.Migliore Jul. 1997
 : added sh to account for higher threshold M.Migliore, Apr.2002
+: WVG @ BBP 2018: add ttx sensitivity
 
 NEURON {
 	SUFFIX nax
