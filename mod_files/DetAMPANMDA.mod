@@ -34,8 +34,8 @@ NEURON {
 PARAMETER {
     tau_r_AMPA = 0.2   (ms)  : Dual-exponential conductance profile
     tau_d_AMPA = 1.7   (ms)  : IMPORTANT: tau_r < tau_d
-    tau_r_NMDA = 0.29  (ms)  : Dual-exponential conductance profile
-    tau_d_NMDA = 43    (ms)  : IMPORTANT: tau_r < tau_d
+    tau_r_NMDA = 9.0   (ms)  : Dual-exponential conductance profile  (from Andrasfalvy and Magee 2001)
+    tau_d_NMDA = 61.0  (ms)  : IMPORTANT: tau_r < tau_d  (from Andrasfalvy and Magee 2001)
     Use = 1.0          (1)   : Utilization of synaptic efficacy
     Dep = 100          (ms)  : Relaxation time constant from depression
     Fac = 10           (ms)  : Relaxation time constant from facilitation
@@ -92,7 +92,7 @@ INITIAL{
 
 BREAKPOINT {
     SOLVE state METHOD cnexp
-    mggate = 1 / (1 + exp(0.062 (/mV) * -(v)) * (mg / 3.57 (mM))) :mggate kinetics - Jahr & Stevens 1990
+    mggate = 1 / (1 + exp(0.067 (/mV) * -(v)) * (mg / 3.57 (mM))) :mggate kinetics - Jahr & Stevens 1990 (LJP corrected)
     g_AMPA = gmax*(B_AMPA-A_AMPA) :compute time varying conductance as the difference of state variables B_AMPA and A_AMPA
     g_NMDA = gmax*(B_NMDA-A_NMDA) * mggate :compute time varying conductance as the difference of state variables B_NMDA and A_NMDA and mggate kinetics
     g = g_AMPA + g_NMDA
