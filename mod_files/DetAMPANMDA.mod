@@ -92,7 +92,7 @@ INITIAL{
 
 BREAKPOINT {
     SOLVE state METHOD cnexp
-    mggate = 1 / (1 + exp(0.067 (/mV) * -(v)) * (mg / 3.57 (mM))) :mggate kinetics - Jahr & Stevens 1990 (LJP corrected)
+    mggate = 1 / (1 + exp(0.062 (/mV) * -(v)) * (mg / 2.62 (mM))) :mggate kinetics - Jahr & Stevens 1990 (LJP corrected)
     g_AMPA = gmax*(B_AMPA-A_AMPA) :compute time varying conductance as the difference of state variables B_AMPA and A_AMPA
     g_NMDA = gmax*(B_NMDA-A_NMDA) * mggate :compute time varying conductance as the difference of state variables B_NMDA and A_NMDA and mggate kinetics
     g = g_AMPA + g_NMDA
