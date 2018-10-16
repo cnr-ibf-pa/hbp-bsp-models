@@ -73,7 +73,7 @@ PARAMETER {
         Nrrp = 1 (1)  : Number of total release sites for given contact
         synapseID = 0
         verboseLevel = 0
-        NMDA_ratio = 0.71 (1) : The ratio of NMDA to AMPA
+        NMDA_ratio = 0.71 (1) : The peak ratio of NMDA to AMPA (from Myme et al. 2003)
 }
 
 COMMENT
