@@ -44,7 +44,7 @@ PARAMETER {
     mggate
     gmax = .001        (uS)  : Weight conversion factor (from nS to uS)
     u0 = 0                   : Initial value of u, which is the running value of Use
-    NMDA_ratio = 0.71 (1) : The peak ratio of NMDA to AMPA (from Myme et al. 2003)
+    NMDA_ratio = 1.22 (1) : The peak ratio of NMDA to AMPA (from Myme et al. 2003)
     synapseID = 0
     verboseLevel = 0
 }
