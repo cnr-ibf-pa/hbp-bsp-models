@@ -36,7 +36,7 @@ PARAMETER {
     tau_d_AMPA = 1.7   (ms)  : IMPORTANT: tau_r < tau_d
     tau_r_NMDA = 9.0   (ms)  : Dual-exponential conductance profile  (from Andrasfalvy and Magee 2001)
     tau_d_NMDA = 61.0  (ms)  : IMPORTANT: tau_r < tau_d  (from Andrasfalvy and Magee 2001)
-    Use = 1.0          (1)   : Utilization of synaptic efficacy
+    Use = 1.0          (1)   : Utilization of synaptic efficacy (just initial values! Use, Dep and Fac are overwritten by BlueBuilder assigned values)
     Dep = 100          (ms)  : Relaxation time constant from depression
     Fac = 10           (ms)  : Relaxation time constant from facilitation
     e = 0              (mV)  : AMPA and NMDA reversal potential
@@ -44,7 +44,7 @@ PARAMETER {
     mggate
     gmax = .001        (uS)  : Weight conversion factor (from nS to uS)
     u0 = 0                   : Initial value of u, which is the running value of Use
-    NMDA_ratio = 0.71  (1)   : The ratio of NMDA to AMPA
+    NMDA_ratio = 1.22 (1) : The peak ratio of NMDA to AMPA (from Myme et al. 2003)
     synapseID = 0
     verboseLevel = 0
 }
